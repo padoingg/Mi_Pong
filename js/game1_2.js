@@ -10,13 +10,13 @@ var mePaddleY = 250;
 var comPaddleY = 250;
 var paddleHeight = 100;
 var paddleWidth = 10;
-var moveX = 10;
-var moveY = 4;
+var moveX = 11;
+var moveY = 5;
 var meScore = 0;
 var comScore = 0;
 var winScore = 3;
 var result = false;
-var audio = new Audio("Mr_Tea.mp3");
+var audio = new Audio("../bgm/Mr_Tea.mp3");
 
 document.addEventListener("keyup", keyUpHandler, false); //(위)키보드 이벤트를 위한 이벤트리스너
 document.addEventListener("keydown", keyDownHandler, false); //(아래)키보드 이벤트를 위한 이벤트리스너
@@ -82,23 +82,23 @@ function reset() {
   ballX = canvas.width/2; //공의 x좌표는 캔버스 가로 / 2;
   ballY = canvas.height/2; //공의 y좌표는 캔버스 세로 / 2;
 }
-                                                                                                                                                                                                                      
+
 function comPaddle() {
   var comPaddle = comPaddleY + (paddleHeight / 2); //컴퓨터 막대의 중심은 컴퓨터 막대의 y좌표 + 막대 높이/2
   if(comPaddle - ballY < 0) { //컴퓨터 막대의 중심에서 공의 y좌표를 뺀 게 0보다 작다면 (공이 막대보다 밑에 있다면)
-    comPaddleY += 3; //컴퓨터 막대의 y좌표는 3 증가된다. (아래로 내려간다.)
+    comPaddleY += 4; //컴퓨터 막대의 y좌표는 3 증가된다. (아래로 내려간다.)
   }
   else if(comPaddle - ballY > 0) { //컴퓨터 막대의 중심에서 공의 y좌표를 뺀 게 0보다 크다면 (공이 막대보다 위에 있다면)
-    comPaddleY -= 3; //컴퓨터 막대의 y좌표는 3 감소된다. (위로 올라간다.)
+    comPaddleY -= 4; //컴퓨터 막대의 y좌표는 3 감소된다. (위로 올라간다.)
   }
 }
 
 function hit() { 
   if(result == true) { //결과창이 나오면
     return false; //false를 리턴한다. (공 멈추도록)
-  } 
+  }
   comPaddle(); //컴퓨터 막대의 이동을 실행하는 함수 호출
-  ballX += moveX; //튕겨 나갈 수 있도록 한다. //ballX = ballX + moveX
+  ballX += moveX; //튕겨 나갈 수 있도록 한다.
   ballY += moveY; //튕겨 나갈 수 있도록 한다.
   if (ballX > canvas.width) { //캔버스의 가로보다 공의 x좌표가 더 클 때 (오른쪽 벽에 부딪혔을 때)
     if(ballY > comPaddleY && ballY < comPaddleY + paddleHeight) { //공의 y좌표가 컴퓨터의 y좌표보다 크고 컴퓨터의 y좌표 + 막대 높이보다 작을 때
@@ -121,7 +121,6 @@ function hit() {
   if (ballY > canvas.height) { //공의 y좌표가 캔버스 높이보다 클 때 (아래쪽 벽에 부딪혔을 때)
     moveY = -moveY; //튕겨 나갈 수 있도록 한다.
   }
-  
   if (ballY < 0) { //공의 y좌표가 0보다 작을 때 (위쪽 벽에 부딪혔을 때)
     moveY = -moveY; //튕겨 나갈 수 있도록 한다.
   }

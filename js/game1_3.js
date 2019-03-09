@@ -10,13 +10,13 @@ var mePaddleY = 250;
 var comPaddleY = 250;
 var paddleHeight = 100;
 var paddleWidth = 10;
-var moveX = 11;
-var moveY = 5;
+var moveX = 13;
+var moveY = 6;
 var meScore = 0;
 var comScore = 0;
 var winScore = 3;
 var result = false;
-var audio = new Audio("Mr_Tea.mp3");
+var audio = new Audio("../bgm/Mr_Tea.mp3");
 
 document.addEventListener("keyup", keyUpHandler, false); //(위)키보드 이벤트를 위한 이벤트리스너
 document.addEventListener("keydown", keyDownHandler, false); //(아래)키보드 이벤트를 위한 이벤트리스너
@@ -86,10 +86,10 @@ function reset() {
 function comPaddle() {
   var comPaddle = comPaddleY + (paddleHeight / 2); //컴퓨터 막대의 중심은 컴퓨터 막대의 y좌표 + 막대 높이/2
   if(comPaddle - ballY < 0) { //컴퓨터 막대의 중심에서 공의 y좌표를 뺀 게 0보다 작다면 (공이 막대보다 밑에 있다면)
-    comPaddleY += 4; //컴퓨터 막대의 y좌표는 3 증가된다. (아래로 내려간다.)
+    comPaddleY += 6; //컴퓨터 막대의 y좌표는 3 증가된다. (아래로 내려간다.)
   }
   else if(comPaddle - ballY > 0) { //컴퓨터 막대의 중심에서 공의 y좌표를 뺀 게 0보다 크다면 (공이 막대보다 위에 있다면)
-    comPaddleY -= 4; //컴퓨터 막대의 y좌표는 3 감소된다. (위로 올라간다.)
+    comPaddleY -= 6; //컴퓨터 막대의 y좌표는 3 감소된다. (위로 올라간다.)
   }
 }
 
