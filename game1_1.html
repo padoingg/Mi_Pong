@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>Mi_Pong_game</title>
+		<style>
+        canvas {
+            background-image: url("image/play.gif");
+            background-size: contain;
+        }    
+		button {
+			background-color: transparent;
+			border: none;
+		}
+        .replay {
+            position: absolute;
+            top: 530px;
+            left: 375px;
+        }
+        .back {
+			position: absolute;
+			top: 540px;
+			left: 12px;
+		}
+        .music {
+            position: absolute;
+            top: 20px;
+            left: 360px;
+        }
+        .notmusic {
+            position: absolute;
+            top: 20px;
+            left: 415px;
+        }
+		</style>
+	</head>
+	<body>
+        <canvas id = "canvas" width = "800px" height = "600px"></canvas>
+        <button class = "music" onclick = "audio.play()"><img src = "image/music_button.png"></button>
+        <button class = "notmusic" onclick = "audio.pause()"><img src = "image/notmusic_button.png"></button>
+        <button class = "replay" onclick = "location.href = 'game1_1.html'"><img src = "image/replay_button.png"></button>	
+        <button class = "back" onclick = "location.href = 'option2.html'"><img src = "image/back_button.png"></button><br>
+    </body>
+    <script src = "game1_1.js"></script>
+</html>
